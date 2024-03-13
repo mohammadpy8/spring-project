@@ -9,7 +9,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class Personal {
     @NotNull(message = "id not null")
