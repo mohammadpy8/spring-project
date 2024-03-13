@@ -2,6 +2,7 @@ package com.example.springstart.controller;
 
 import com.example.springstart.response.Error;
 import com.example.springstart.response.Person;
+import com.example.springstart.response.Personal;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,5 +25,9 @@ public class JsonController {
     @PostMapping("/save-person")
     public ResponseEntity<Person> savePerson(@RequestBody @Valid Person person){
         return ResponseEntity.status(202).body(person);
+    }
+    @PostMapping("/personal")
+    public ResponseEntity<Personal> savePersonal(@RequestBody @Valid Personal personal){
+        return ResponseEntity.status(200).body(personal);
     }
 }
