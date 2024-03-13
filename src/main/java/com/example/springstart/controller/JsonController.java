@@ -2,11 +2,9 @@ package com.example.springstart.controller;
 
 import com.example.springstart.response.Error;
 import com.example.springstart.response.Person;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/json")
@@ -18,5 +16,13 @@ public class JsonController {
     @GetMapping("/index/{id}/{index}")
     public ResponseEntity<Error> error(@PathVariable Integer id, @PathVariable Integer index) {
         return ResponseEntity.status(202).body(new Error(id, index));
+    }
+    @PostMapping
+    public ResponseEntity<Person> save(@RequestBody @Valid Person person){
+        return ResponseEntity.ok(person);
+    }
+    @PostMapping("/save-person")
+    public ResponseEntity<Person> savePerson(@RequestBody @Valid Person person){
+        return ResponseEntity.status(202).body(person);
     }
 }
